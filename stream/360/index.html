@@ -1,0 +1,378 @@
+---
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Lecteur 360° HLS</title>
+
+  <!-- hls.js : lecture du flux HLS live -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+  <!-- three.js chargé en module (importmap) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --btn-bg: rgba(0, 0, 0, 0.30);
+      --btn-bg-hover: rgba(0, 0, 0, 0.50);
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+    }
+
+    /* Le canvas three.js remplit tout l'écran (dvh = tient compte des barres mobiles) */
+    #app {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100dvh;
+    }
+
+    #app canvas {
+      display: block;
+      touch-action: none;   /* on gère nous-mêmes le drag / pinch */
+      cursor: grab;
+    }
+    #app canvas:active { cursor: grabbing; }
+
+    /* --------- LOGO --------- */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    #logo {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 10;
+      width: auto;
+      height: 64px;
+      opacity: 0.75;
+      animation: spin 20s linear infinite;
+      pointer-events: none;   /* le logo ne bloque jamais le drag */
+    }
+
+    /* --------- BARRE DE CONTRÔLES --------- */
+    #controls {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 20;
+      display: flex;
+      gap: 8px;
+    }
+
+    .ctrl {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 12px;
+      background: var(--btn-bg);
+      color: #fff;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      opacity: 0.85;
+      -webkit-tap-highlight-color: transparent;
+      backdrop-filter: blur(4px);
+      transition: background 0.15s ease, opacity 0.15s ease;
+    }
+    .ctrl:hover  { background: var(--btn-bg-hover); opacity: 1; }
+    .ctrl:active { transform: scale(0.94); }
+    .ctrl.active { background: rgba(60, 130, 255, 0.55); opacity: 1; }
+    .ctrl.hidden { display: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      #logo { animation: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+  <img id="logo" src="{{ site.baseurl }}/img/logo/sotm_2026.svg" alt="SOTM 2026">
+
+  <div id="controls">
+    <button id="gyroBtn" class="ctrl hidden" title="Orientation par le mouvement">🧭</button>
+    <button id="soundBtn" class="ctrl" title="Activer le son">🔇</button>
+    <button id="fsBtn" class="ctrl" title="Plein écran">⛶</button>
+  </div>
+
+  <!-- Vidéo source (cachée) : sert de texture à la sphère -->
+  <video
+    id="stream"
+    crossorigin="anonymous"
+    playsinline
+    webkit-playsinline
+    muted
+    autoplay
+    style="display:none"
+  ></video>
+
+  <script type="module">
+    import * as THREE from 'three';
+
+    /* =========================================================
+       RÉGLAGES
+       ========================================================= */
+    const HLS_URL = 'https://film.k-prod.fr/static/streaming-playlists/hls/9169be81-2139-4712-b3cd-e67c37d028d6/0.m3u8';
+
+    // Orientation de départ de la vue, en degrés (équivaut à l'ancien rotation="0 -90 0").
+    // Ajuste cette valeur si le "devant" de ta vidéo n'est pas centré au chargement.
+    const HEADING_OFFSET = 90;
+
+    const MIN_FOV = 30;   // zoom maxi (pincer pour rapprocher)
+    const MAX_FOV = 100;  // dézoom maxi
+    const DRAG_SPEED = 0.15;
+
+    /* =========================================================
+       LECTURE DU FLUX HLS
+       ========================================================= */
+    const video = document.getElementById('stream');
+
+    function initHls() {
+      if (window.Hls && Hls.isSupported()) {
+        const hls = new Hls({ lowLatencyMode: true, liveSyncDurationCount: 3 });
+        hls.loadSource(HLS_URL);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => video.play().catch(() => {}));
+        // Récupération automatique en cas de coupure réseau/média
+        hls.on(Hls.Events.ERROR, (evt, data) => {
+          if (!data.fatal) return;
+          switch (data.type) {
+            case Hls.ErrorTypes.NETWORK_ERROR: hls.startLoad(); break;
+            case Hls.ErrorTypes.MEDIA_ERROR:   hls.recoverMediaError(); break;
+            default:                           hls.destroy(); break;
+          }
+        });
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        // Safari lit le HLS nativement
+        video.src = HLS_URL;
+        video.addEventListener('loadedmetadata', () => video.play().catch(() => {}));
+      }
+    }
+    initHls();
+
+    /* =========================================================
+       SCÈNE 360°
+       ========================================================= */
+    const container = document.getElementById('app');
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1100);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    container.appendChild(renderer.domElement);
+
+    // Texture vidéo mappée à l'intérieur d'une sphère
+    const texture = new THREE.VideoTexture(video);
+    texture.colorSpace = THREE.SRGBColorSpace;
+
+    const geometry = new THREE.SphereGeometry(500, 60, 40);
+    geometry.scale(-1, 1, 1); // on regarde depuis l'intérieur
+    const sphere = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ map: texture }));
+    scene.add(sphere);
+
+    /* =========================================================
+       CONTRÔLE À LA SOURIS / AU DOIGT (glisser + pincer pour zoomer)
+       ========================================================= */
+    let lon = HEADING_OFFSET, lat = 0;
+    let isDragging = false;
+    let px = 0, py = 0;
+
+    const pointers = new Map();
+    let pinchStartDist = 0, pinchStartFov = 0;
+
+    const canvas = renderer.domElement;
+
+    canvas.addEventListener('pointerdown', (e) => {
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pointers.size === 2) {
+        const [a, b] = [...pointers.values()];
+        pinchStartDist = Math.hypot(a.x - b.x, a.y - b.y);
+        pinchStartFov = camera.fov;
+        isDragging = false;
+      } else {
+        isDragging = true;
+        px = e.clientX; py = e.clientY;
+      }
+    });
+
+    window.addEventListener('pointermove', (e) => {
+      if (!pointers.has(e.pointerId)) return;
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+      // Deux doigts -> zoom
+      if (pointers.size >= 2 && pinchStartDist > 0) {
+        const [a, b] = [...pointers.values()];
+        const d = Math.hypot(a.x - b.x, a.y - b.y);
+        camera.fov = Math.max(MIN_FOV, Math.min(MAX_FOV, pinchStartFov * pinchStartDist / d));
+        camera.updateProjectionMatrix();
+        return;
+      }
+
+      // Un doigt / souris -> rotation de la vue
+      if (!isDragging || gyroEnabled) return;
+      const dx = e.clientX - px, dy = e.clientY - py;
+      px = e.clientX; py = e.clientY;
+      lon -= dx * DRAG_SPEED;
+      lat += dy * DRAG_SPEED;
+      lat = Math.max(-85, Math.min(85, lat));
+    });
+
+    function endPointer(e) {
+      pointers.delete(e.pointerId);
+      if (pointers.size < 2) pinchStartDist = 0;
+      if (pointers.size === 0) isDragging = false;
+    }
+    window.addEventListener('pointerup', endPointer);
+    window.addEventListener('pointercancel', endPointer);
+
+    // Molette = zoom (desktop)
+    canvas.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      camera.fov = Math.max(MIN_FOV, Math.min(MAX_FOV, camera.fov + e.deltaY * 0.05));
+      camera.updateProjectionMatrix();
+    }, { passive: false });
+
+    /* =========================================================
+       GYROSCOPE (optionnel, mobile)
+       ========================================================= */
+    let gyroEnabled = false;
+    let lastOrientation = null;
+
+    const gyro = (() => {
+      const q1  = new THREE.Quaternion(-Math.SQRT1_2, 0, 0, Math.SQRT1_2);
+      const zee = new THREE.Vector3(0, 0, 1);
+      const euler = new THREE.Euler();
+      const q0 = new THREE.Quaternion();
+      return function apply(cam, e) {
+        if (!e || e.alpha == null) return;
+        const alpha = THREE.MathUtils.degToRad(e.alpha);
+        const beta  = THREE.MathUtils.degToRad(e.beta);
+        const gamma = THREE.MathUtils.degToRad(e.gamma);
+        const orient = THREE.MathUtils.degToRad(
+          (screen.orientation && screen.orientation.angle) || window.orientation || 0
+        );
+        euler.set(beta, alpha, -gamma, 'YXZ');
+        cam.quaternion.setFromEuler(euler);
+        cam.quaternion.multiply(q1);
+        cam.quaternion.multiply(q0.setFromAxisAngle(zee, -orient));
+      };
+    })();
+
+    window.addEventListener('deviceorientation', (e) => { lastOrientation = e; }, true);
+
+    /* =========================================================
+       BOUCLE DE RENDU
+       ========================================================= */
+    function animate() {
+      requestAnimationFrame(animate);
+      if (gyroEnabled && lastOrientation) {
+        gyro(camera, lastOrientation);
+      } else {
+        const phi = THREE.MathUtils.degToRad(90 - lat);
+        const theta = THREE.MathUtils.degToRad(lon);
+        camera.lookAt(
+          500 * Math.sin(phi) * Math.cos(theta),
+          500 * Math.cos(phi),
+          500 * Math.sin(phi) * Math.sin(theta)
+        );
+      }
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    /* =========================================================
+       BOUTONS
+       ========================================================= */
+    const soundBtn = document.getElementById('soundBtn');
+    const fsBtn = document.getElementById('fsBtn');
+    const gyroBtn = document.getElementById('gyroBtn');
+
+    // --- Son ---
+    soundBtn.addEventListener('click', async () => {
+      try {
+        if (video.muted) {
+          video.muted = false;
+          video.volume = 1.0;
+          await video.play();
+          soundBtn.textContent = '🔊';
+          soundBtn.title = 'Couper le son';
+        } else {
+          video.muted = true;
+          soundBtn.textContent = '🔇';
+          soundBtn.title = 'Activer le son';
+        }
+      } catch (err) { console.error(err); }
+    });
+
+    // --- Plein écran ---
+    const fsSupported = document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen;
+    if (!fsSupported) {
+      fsBtn.classList.add('hidden'); // iPhone Safari : l'API n'existe pas, la page occupe déjà tout l'écran
+    }
+    fsBtn.addEventListener('click', () => {
+      const el = document.documentElement;
+      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        (el.requestFullscreen || el.webkitRequestFullscreen).call(el);
+      } else {
+        (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+      }
+    });
+
+    // --- Gyroscope : visible uniquement sur écran tactile ---
+    const isTouch = window.matchMedia('(pointer: coarse)').matches && 'DeviceOrientationEvent' in window;
+    if (isTouch) gyroBtn.classList.remove('hidden');
+
+    gyroBtn.addEventListener('click', async () => {
+      if (gyroEnabled) {
+        gyroEnabled = false;
+        gyroBtn.classList.remove('active');
+        return;
+      }
+      // iOS 13+ : autorisation requise sur geste utilisateur
+      if (typeof DeviceOrientationEvent !== 'undefined' &&
+          typeof DeviceOrientationEvent.requestPermission === 'function') {
+        try {
+          const perm = await DeviceOrientationEvent.requestPermission();
+          if (perm !== 'granted') return;
+        } catch (err) { return; }
+      }
+      gyroEnabled = true;
+      gyroBtn.classList.add('active');
+    });
+  </script>
+
+</body>
+</html>

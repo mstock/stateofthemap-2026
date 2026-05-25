@@ -1,0 +1,80 @@
+---
+layout: stream
+title: Live Stream
+javascript:
+  - stream/i18n/en
+  - stream/i18n/fr
+  - stream/i18n/es
+  - stream/i18n/de
+  - stream/i18n/it
+  - stream/i18n/pt
+  - stream/i18n/nl
+  - stream/i18n/ru
+  - stream/i18n/zh
+  - stream/i18n/ja
+  - stream/i18n/ar
+  - stream/i18n/hi
+  - stream
+css: stream
+---
+<header class="topbar">
+  <div class="spacer"></div>
+  <div class="legend-head">
+    <div>
+      <h2 data-i18n="legend.heading">Available streams</h2>
+    </div>
+    <button type="button" class="legend-toggle" id="legendToggle" aria-expanded="true" aria-controls="legendList" data-i18n-aria="legend.toggle" aria-label="Collapse or expand the stream list">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+  <div class="topbar-right">
+    <div class="live-count" id="liveCount" aria-live="polite">
+      <span class="dot"></span><span id="liveCountText">…</span>
+    </div>
+    <label class="lang-switch">
+      <span class="sr-only" data-i18n="topbar.langLabel">Language</span>
+      <select id="langSelect" data-i18n-aria="topbar.langLabel" aria-label="Language"></select>
+    </label>
+  </div>
+</header>
+
+<main class="layout">
+
+  <aside class="legend">
+    <div class="legend-collapse" id="legendCollapse">
+      <ul class="legend-list" id="legendList" role="list">
+        <!-- généré en JS depuis CONFIG.channels (assets/js/app.js) -->
+      </ul>
+    </div>
+  </aside>
+
+  <section class="stage-col">
+    <div class="stage-viewport" id="stageViewport">
+      <div class="stage-empty" id="stageEmpty">
+        <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <path d="M5 70 Q 25 50 45 65 T 95 55" stroke="#1E66E0" stroke-width="1.4" stroke-dasharray="3 4"/>
+          <path d="M5 80 Q 30 65 50 78 T 95 70" stroke="#93A1AC" stroke-width="1.2" stroke-dasharray="2 4"/>
+          <circle cx="50" cy="38" r="4" stroke="#D81E26" stroke-width="2"/>
+          <path d="M50 42 L50 50" stroke="#D81E26" stroke-width="2"/>
+        </svg>
+        <p data-i18n="stage.emptyText">Choose a stream from the legend to start playback.</p>
+        <span class="hint-key" data-i18n="stage.emptyHint">Only one player active at a time</span>
+      </div>
+      <!-- le lecteur (iframe PeerTube ou vue 360°) est injecté ici en JS -->
+    </div>
+
+    <div class="stage-toolbar" id="stageToolbar" hidden>
+      <span class="tag" id="ttTag">—</span>
+      <span class="title" id="ttTitle">—</span>
+      <span class="room" id="ttRoom">—</span>
+      <span class="spacer"></span>
+      <button class="icon-btn" id="ttPopout" data-i18n-title="stage.popout" data-i18n-aria="stage.popout" title="Open in a new window" aria-label="Open in a new window">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M14 4h6v6M20 4l-8 8M9 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="icon-btn" id="ttClose" data-i18n-title="stage.close" data-i18n-aria="stage.close" title="Close player" aria-label="Close player">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </section>
+
+</main>

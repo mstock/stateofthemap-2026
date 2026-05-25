@@ -1,0 +1,553 @@
+/* =============================================================================
+   STATE OF THE MAP 2026 — STYLE
+   -----------------------------------------------------------------------------
+   Couleurs : extraites du logo officiel (assets/img/sotm_2026.svg) — bleu
+   #000091→#004bce et rouge #c7000a→#d81e26. Le fond anthracite est conservé
+   tel quel, comme demandé.
+   ============================================================================= */
+
+:root {
+  /* --- Fond (inchangé) ------------------------------------------------- */
+  --ink:        #11161D;
+  --surface:    #1A222D;
+  --surface-2:  #222C39;
+  --line:       #2B3645;
+  --paper:      #ECEFEC;
+  --paper-dim:  #93A1AC;
+
+  /* --- Couleurs officielles, issues du logo ----------------------------
+     bleu : dégradé #000091 → #004bce
+     rouge: dégradé #c7000a → #d81e26
+     ---------------------------------------------------------------------- */
+  --blue:       #1E66E0;   /* version légèrement éclaircie pour rester lisible sur fond sombre */
+  --blue-deep:  #000091;
+  --blue-dim:   rgba(30,102,224,.18);
+
+  --red:        #D81E26;
+  --red-deep:   #C7000A;
+  --red-dim:    rgba(216,30,38,.18);
+
+  --radius: 10px;
+}
+
+.content *{ box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
+.content { height:auto; min-height:100%; margin:0; }
+.content {
+  overflow-x:hidden;
+}
+.content button{ font-family:inherit; color:inherit; }
+.content a{ color:var(--blue); }
+
+.sr-only{
+  position:absolute; width:1px; height:1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;
+}
+
+::selection{ background:var(--blue-dim); }
+
+:focus-visible{
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Sans ceci, l'attribut HTML `hidden` est systématiquement perdant face à
+   n'importe quelle règle `display` définie plus bas dans cette feuille
+   (une déclaration auteur normale l'emporte toujours sur la feuille du
+   navigateur, quelle que soit la spécificité) — .stage-toolbar/.stage-empty
+   resteraient visibles malgré `el.hidden = true` en JS. */
+[hidden]{ display:none !important; }
+
+/* ---------------------------------------------------------------------
+   BARRE SUPÉRIEURE
+--------------------------------------------------------------------- */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  flex: 0 0 auto;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items:center;
+  gap:.75rem;
+  padding: .65rem 1.1rem;
+  flex-wrap:wrap;
+  row-gap:.5rem;
+}
+.mark{
+  width:40px; height:40px; flex:0 0 auto;
+  border-radius:50%;
+  display:block;
+  box-shadow: 0 0 0 1px var(--line), 0 4px 14px rgba(30,102,224,.35);
+}
+.topbar h1{
+  font-weight:700;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  letter-spacing:-.01em;
+  margin:0;
+  line-height:1.15;
+}
+.topbar .sub{
+  font-size:.7rem;
+  color:var(--paper-dim);
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.topbar .spacer{ flex:1; }
+.topbar-right {
+  display: flex;
+  justify-content: right;
+}
+
+.live-count{
+  font-size:.72rem;
+  font-weight:500;
+  color:var(--paper);
+  border:1px solid var(--red-deep);
+  background: linear-gradient(135deg, var(--red-dim), transparent);
+  border-radius:999px;
+  padding:.4rem .8rem;
+  display:flex;
+  align-items:center;
+  gap:.45rem;
+  white-space:nowrap;
+}
+.live-count .dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--red);
+  box-shadow: 0 0 8px 1px rgba(216,30,38,.7);
+}
+
+.lang-switch select{
+  appearance:none;
+  background: var(--surface);
+  color:var(--paper);
+  border:1px solid var(--line);
+  border-radius:999px;
+  font-size:.72rem;
+  letter-spacing:.03em;
+  padding:.4rem 1.6rem .4rem .8rem;
+  cursor:pointer;
+  min-height:34px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6 9l6 6 6-6' fill='none' stroke='%2393A1AC' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat:no-repeat;
+  background-position: right .55rem center;
+  background-size:13px;
+}
+.lang-switch select:hover{ border-color:var(--blue); }
+
+/* ---------------------------------------------------------------------
+   MISE EN PAGE PRINCIPALE : légende (rangée de flux) puis scène dessous.
+   Plus de grille à deux colonnes ni de hauteur calculée : chaque bloc a
+   sa propre taille intrinsèque, ce qui évite tout vide ou effondrement
+   de hauteur selon le contexte d'intégration (iframe d'un autre site).
+--------------------------------------------------------------------- */
+.layout{ }
+
+/* ---- Scène (lecteur) -------------------------------------------- */
+.stage-col{
+  display:flex;
+  flex-direction:column;
+  padding: 1rem;
+  gap:.7rem;
+}
+.stage-viewport{
+  position:relative;
+  width:100%;
+  max-width:1400px;
+  margin:0 auto;
+  aspect-ratio:16/9;
+  min-height:280px;
+  background:#000;
+  border-radius: var(--radius);
+  overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow: 0 20px 60px -20px rgba(0,0,0,.6);
+  transition: box-shadow .25s ease, border-color .25s ease;
+}
+.stage-viewport:has(.fill){
+  border-color: var(--blue);
+  box-shadow: 0 0 0 1px var(--blue-dim), 0 20px 60px -16px rgba(30,102,224,.35);
+}
+.stage-viewport > .fill{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  border:0;
+}
+
+/* ---- Sélecteur de rediffusions ------------------------------------
+   Affiché dans la scène (classe .fill, donc déjà positionné en absolute
+   inset:0 par la règle ci-dessus) à la place du lecteur, le temps de
+   choisir une vidéo parmi toutes celles de la chaîne de rediffusions.
+   La chaîne étant vouée à en accumuler des dizaines, la scène est
+   agrandie en hauteur le temps du choix (elle n'a plus besoin de garder
+   le ratio 16/9 d'une vidéo) pour laisser une vraie zone défilante,
+   avec un ascenseur visible — surtout utile sur mobile où la scène est
+   sinon trop basse pour qu'on remarque qu'il y a plus à voir dessous. */
+.stage-viewport:has(.replay-picker){
+  aspect-ratio: auto;
+  height: min(75vh, 640px);
+}
+.replay-picker{
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+  padding:1rem;
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap:.75rem;
+  align-content:start;
+  background:#0b0e12;
+  scrollbar-width:thin;
+  scrollbar-color: var(--paper-dim) transparent;
+}
+.replay-picker::-webkit-scrollbar{ width:9px; }
+.replay-picker::-webkit-scrollbar-track{ background:transparent; }
+.replay-picker::-webkit-scrollbar-thumb{
+  background:var(--paper-dim);
+  border-radius:999px;
+  border:2px solid #0b0e12;
+}
+.replay-picker::-webkit-scrollbar-thumb:hover{ background:var(--blue); }
+.replay-picker-item{
+  display:flex; flex-direction:column;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:8px;
+  overflow:hidden;
+  cursor:pointer;
+  text-align:left;
+  padding:0 0 .5rem;
+  transition: border-color .15s, transform .15s;
+}
+.replay-picker-item:hover{ border-color:var(--blue); transform:translateY(-2px); }
+.replay-picker-item .thumb{
+  width:100%; aspect-ratio:16/9;
+  background:var(--surface-2);
+  overflow:hidden;
+}
+.replay-picker-item .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+.replay-picker-item .t{
+  padding:.5rem .6rem 0;
+  font-weight:600; font-size:.78rem;
+  line-height:1.3;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.replay-picker-item .views{
+  margin-top:.3rem;
+  padding:0 .6rem;
+  display:flex; align-items:center; gap:.25rem;
+  font-size:.66rem; color:var(--paper-dim);
+}
+.replay-picker-item .views svg{ width:11px; height:11px; opacity:.8; }
+
+.stage-empty{
+  position:absolute; inset:0;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap:.9rem;
+  color:var(--paper-dim);
+  text-align:center;
+  padding:2rem;
+}
+.stage-empty svg{ width:120px; height:120px; opacity:.6; }
+.stage-empty p{
+  margin:0; max-width:280px;
+  font-size:.92rem; line-height:1.5;
+}
+.stage-empty .hint-key{
+  font-size:.72rem;
+  color:var(--blue); letter-spacing:.03em;
+}
+
+.stage-toolbar{
+  display:flex; align-items:center; gap:.6rem;
+  min-height: 1.8rem;
+  flex-wrap:wrap;
+}
+.stage-toolbar .tag{
+  font-size:.72rem;
+  color:#fff;
+  background: linear-gradient(135deg, var(--blue), var(--blue-deep));
+  border-radius:5px;
+  padding:.15rem .45rem;
+  flex:0 0 auto;
+}
+.stage-toolbar .title{
+  font-weight:600;
+  font-size:.95rem;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.stage-toolbar .room{
+  font-size:.78rem;
+  color:var(--paper-dim);
+  flex:0 0 auto;
+}
+.stage-toolbar .spacer{ flex:1; }
+
+.icon-btn{
+  background:transparent;
+  border:1px solid var(--line);
+  border-radius:7px;
+  width:34px; height:34px;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer;
+  flex:0 0 auto;
+  transition: background .15s, border-color .15s;
+}
+.icon-btn:hover{ background:var(--surface-2); border-color:var(--blue); }
+.icon-btn svg{ width:16px; height:16px; }
+
+/* ---- Légende ---------------------------------------------------------
+   Une galerie de cartes, une par flux, vignette large en tête et infos
+   dessous, en grille responsive à toutes les tailles d'écran (colonnes
+   plus étroites sous 700px, voir la media query en bas de fichier, pour
+   voir tous les flux d'un coup sans défiler sur mobile).
+--------------------------------------------------------------------- */
+.legend{
+  display:flex;
+  flex-direction:column;
+}
+.legend-head{
+  max-width:1400px;
+  margin:0 auto;
+  padding: 1.3rem 1.1rem .6rem;
+  flex:0 0 auto;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:.75rem;
+}
+
+.legend-toggle{
+  flex:0 0 auto;
+  margin-top:.15rem;
+  background:transparent;
+  border:1px solid var(--line);
+  border-radius:7px;
+  width:32px; height:32px;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer;
+  transition: background .15s, border-color .15s;
+}
+.legend-toggle:hover{ background:var(--surface-2); border-color:var(--blue); }
+.legend-toggle svg{ width:15px; height:15px; transition: transform .2s ease; }
+.legend-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+.legend-head .eyebrow{
+  font-size:.68rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--blue);
+  display:flex; align-items:center; gap:.5rem;
+}
+.legend-head .eyebrow::before{
+  content:"";
+  width:16px; height:2px;
+  background: linear-gradient(90deg, var(--blue), var(--red));
+  flex:0 0 auto;
+}
+.legend-head h2{
+  font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+  font-weight:700;
+  letter-spacing:-.01em;
+  margin:.25rem 0 0;
+  padding-top: 0;
+}
+
+/* Enveloppe qui porte le repli/dépli animé (bouton .legend-toggle) : la
+   grille elle-même peut faire plusieurs rangées de cartes, mais comme
+   c'est le SEUL enfant de cette grille à une rangée, faire varier
+   grid-template-rows entre 1fr et 0fr anime proprement toute sa hauteur,
+   quel que soit le nombre de cartes qu'elle contient. */
+.legend-collapse{
+  width: 100%;
+  max-width:1400px;
+  margin:0 auto;
+  display:grid;
+  grid-template-rows: 1fr;
+  overflow:hidden;
+}
+@media (prefers-reduced-motion: no-preference){
+  .legend-collapse{ transition: grid-template-rows .32s ease; }
+  .legend-list{ transition: padding-block .32s ease; }
+}
+.legend-collapse.is-collapsed{ grid-template-rows: 0fr; }
+.legend-collapse > .legend-list{ overflow:hidden; min-height:0; }
+/* Le padding vertical de .legend-list ne fait pas partie de la piste
+   grid-template-rows qu'on anime : sans ce reset, il reste incompressible
+   (le rembourrage ne peut pas devenir négatif) et le haut des cartes
+   dépasse encore une fois "fermé". */
+.legend-collapse.is-collapsed .legend-list{ padding-block:0; }
+
+.content .legend-list{
+  list-style:none;
+  margin:0; padding: .35rem 1.1rem 1.3rem;
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap:.9rem;
+}
+/* Jusqu'à 6 vignettes à ce jour (4 directs + 360° + rediffusions) : sur
+   assez large pour ça, on les aligne sur une seule rangée bien régulière
+   plutôt que de laisser l'auto-fill choisir un nombre de colonnes moins
+   prévisible. En dessous, la grille redevient fluide (auto-fill ci-dessus). */
+@media (min-width: 1150px){
+  .content .legend-list{ grid-template-columns: repeat(6, 1fr); }
+}
+
+/* min-width:0 est indispensable ici : par défaut, un élément de grille a
+   une taille minimale basée sur son contenu NON tronqué (le nowrap +
+   ellipsis des titres/salles ne change rien à ce calcul). Sans ça, une
+   carte dont le titre ou le nom de salle est plus long que les autres
+   (ex. le titre d'une vidéo récupéré tel quel depuis l'API PeerTube, ou
+   simplement "Martinique & Corse" plus long que "Guadeloupe") force sa
+   colonne à s'élargir — d'où des vignettes de tailles différentes. */
+.legend-item{ position:relative; min-width:0; }
+@media (prefers-reduced-motion: no-preference){
+  @keyframes cardIn{
+    from{ opacity:0; transform: translateY(14px) scale(.97); }
+    to{ opacity:1; transform: translateY(0) scale(1); }
+  }
+  .legend-item.is-entering{
+    animation: cardIn .5s cubic-bezier(.16,1,.3,1) both;
+    animation-delay: calc(var(--i, 0) * 55ms);
+  }
+}
+.legend-item button{
+  width:100%;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:0;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius: calc(var(--radius) + 4px);
+  padding:0 0 .75rem;
+  overflow:hidden;
+  cursor:pointer;
+  text-align:left;
+  box-shadow: 0 10px 24px -16px rgba(0,0,0,.6);
+  transition: background .15s, border-color .15s, transform .18s ease, box-shadow .18s ease;
+}
+.legend-item button:hover{
+  background:var(--surface-2);
+  border-color:var(--blue);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 32px -18px rgba(30,102,224,.4);
+}
+.legend-item.active button{
+  background:var(--surface-2);
+  border-color:var(--blue);
+  box-shadow: 0 0 0 3px var(--blue-dim), 0 18px 32px -18px rgba(30,102,224,.5);
+}
+
+/* ---- Vignette : large, en aspect 16/9, en tête de carte ------------- */
+.legend-thumb{
+  flex:0 0 auto;
+  width:100%;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background: linear-gradient(150deg, var(--surface-2), var(--ink) 75%);
+  position:relative;
+  border-bottom:1px solid var(--line);
+}
+.legend-thumb-img{
+  position:absolute; inset:0;
+  width:100%; height:100%; object-fit:cover;
+  display:none;
+}
+.legend-thumb-img.is-loaded{ display:block; }
+.legend-thumb .ph{
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700;
+  font-size:1.4rem; letter-spacing:.02em;
+  color:var(--paper-dim);
+  transition: opacity .2s;
+}
+.legend-thumb .ph.is-hidden{ opacity:0; }
+#item-pano .legend-thumb{
+  background: linear-gradient(150deg, var(--blue-deep), var(--ink) 55%, var(--red-deep));
+}
+#item-pano .legend-thumb .ph{ color:#fff; text-shadow:0 1px 4px rgba(0,0,0,.4); }
+.legend-item.active .legend-thumb{ border-bottom-color: var(--blue); }
+
+/* Pastille superposée sur la vignette : n° de flux uniquement (le nombre
+   de spectateurs vit désormais à côté du texte "En direct", ci-dessous). */
+.legend-num{
+  position:absolute; top:.5rem; left:.5rem; z-index:1;
+  font-size:.68rem; font-weight:500;
+  color:var(--paper);
+  background:rgba(10,13,17,.6);
+  backdrop-filter: blur(3px);
+  border-radius:999px;
+  padding:.15rem .5rem;
+}
+.legend-item.active .legend-num{ color:#fff; background: linear-gradient(135deg, var(--blue), var(--blue-deep)); }
+
+.legend-meta{ padding:.7rem .85rem 0; min-width:0; }
+.legend-meta .t{
+  font-size:.95rem; font-weight:600;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.legend-meta .r{
+  font-size:.76rem; color:var(--paper-dim);
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.status-row{
+  display:flex; align-items:center; gap:.35rem;
+  margin-top:.35rem;
+  font-size:.68rem;
+  color:var(--paper-dim);
+}
+.status-row .dot{ width:6px; height:6px; border-radius:50%; flex:0 0 auto; background:var(--paper-dim); }
+.status-row.is-live .dot{ background:var(--red); }
+.status-row.is-live{ color:var(--red); }
+.status-row.is-pending .dot{ background:var(--paper-dim); }
+.status-row.is-standby .dot{ background:var(--blue); }
+.status-row.is-standby{ color:var(--blue); }
+.status-row.is-offline .dot{ background:var(--paper-dim); }
+.status-row.is-pano .dot{ background:var(--blue); }
+.status-row.is-pano{ color:var(--blue); }
+
+.status-row .viewers{
+  display:flex; align-items:center; gap:.2rem;
+  margin-inline-start:.15rem;
+  padding-inline-start:.5rem;
+  border-inline-start:1px solid var(--line);
+  color:var(--paper-dim);
+}
+.status-row .viewers svg{ width:11px; height:11px; opacity:.85; }
+
+/* ---------------------------------------------------------------------
+   RESPONSIVE
+   Sur petit écran, la grille garde de petites cartes plutôt qu'un
+   carrousel plein écran : on voit toutes les vignettes d'un coup, sans
+   défiler, pour changer de flux d'un simple coup d'œil.
+--------------------------------------------------------------------- */
+@media (max-width: 700px){
+  .legend-list{
+    grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+    gap:.55rem;
+    padding: .3rem .7rem 1rem;
+  }
+  .legend-meta{ padding:.45rem .55rem .05rem; }
+  .legend-meta .t{ font-size:.74rem; }
+  .legend-meta .r{ font-size:.64rem; }
+  .status-row{ font-size:.6rem; gap:.25rem; margin-top:.25rem; }
+  .status-row .viewers{ padding-inline-start:.35rem; }
+  .legend-num{ font-size:.6rem; padding:.1rem .4rem; top:.35rem; left:.35rem; }
+  .legend-thumb .ph{ font-size:1.05rem; }
+}
+
+@media (max-width: 600px){
+  .topbar{ padding:.6rem .8rem; gap:.55rem; }
+  .topbar .sub{ display:none; } /* on garde le titre, on libère de la place */
+  .mark{ width:32px; height:32px; }
+  .live-count{ font-size:.66rem; padding:.3rem .55rem; }
+  .icon-btn{ width:38px; height:38px; }
+  .stage-toolbar .room{ display:none; } /* place limitée : on garde titre + tag */
+}
