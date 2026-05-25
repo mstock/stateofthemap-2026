@@ -13,3 +13,10 @@
     <!-- leaflet -->
     <script src="{{ "/js/leaflet.js" | prepend: site.baseurl }}"></script>
     <link rel="stylesheet" href="{{ "/css/leaflet.css" | prepend: site.baseurl }}" />
+
+    {% if page.javascript -%}
+    <!-- per-page JavaScript -->
+        {%- for script_file in page.javascript %}
+    <script src="{{ "/js" | prepend: site.baseurl }}/{{ script_file }}.js"></script>
+        {%- endfor -%}
+    {%- endif %}
