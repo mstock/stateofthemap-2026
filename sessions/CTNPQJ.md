@@ -14,5 +14,5 @@ prerecorded: False
 language: en
 ---
 
-With this study, we aim to quantify the amount of publicly accessible (i.e. mappable) indoor spaces in European cities.
+With this study we aim to quantify the amount of mappable indoor space in European cities. On this base we can assess the completeness of indoor data in OSM. We operate under the premise that only publicly accessible spaces are relevant for inclusion in the OSM database. Thus, we first identify candidate buildings based on building tag values and spatially realated amenities. We then employ values derived from Neufert design guidelines to estimate the portion that is actually publicly accessible. The method is tested with four European cities, Pecs, Dresden, Budapest and Berlin, and verified at random with selected buildings.
 

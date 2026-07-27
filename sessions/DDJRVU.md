@@ -2,7 +2,7 @@
 layout: session
 title: "CoMaps - How to make a community-based map &amp; navigation app based on OpenStreetMap"
 code: "DDJRVU"
-speaker_names: ["Bastian Greshake Tzovaras"]
+speaker_names: ["Bastian Greshake Tzovaras", "Diego Miguel Lozano"]
 affiliations: None
 room: "La Réunion"
 length: "20"

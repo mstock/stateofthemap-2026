@@ -5,9 +5,9 @@ code: "9C7LJM"
 speaker_names: ["Matt White"]
 affiliations: None
 room: "Corse"
-length: "5"
-time: "Saturday, 17:25"
-time_iso: "2026-08-29T15:25:00Z"
+length: "20"
+time: "Saturday, 17:55"
+time_iso: "2026-08-29T15:55:00Z"
 resources: [{ description: "Ascend Maps Github", url: "https://github.com/styluslabs/maps" }]
 recording: True
 prerecorded: False

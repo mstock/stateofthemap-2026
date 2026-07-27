@@ -6,8 +6,8 @@ speaker_names: ["Daniel Schep"]
 affiliations: None
 room: "Corse"
 length: "5"
-time: "Saturday, 17:35"
-time_iso: "2026-08-29T15:35:00Z"
+time: "Saturday, 17:25"
+time_iso: "2026-08-29T15:25:00Z"
 resources: [{ description: "Ultra", url: "https://overpass-ultra.us" }]
 recording: True
 prerecorded: False

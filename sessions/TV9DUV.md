@@ -1,6 +1,6 @@
 ---
 layout: session
-title: "OpenStreetMap on Board: How We Fit Europe into 700 High-Speed Trains"
+title: "OpenStreetMap on Board: How We Fit Europe into 300 High-Speed Trains"
 code: "TV9DUV"
 speaker_names: ["Benjamin Demonet"]
 affiliations: None
@@ -14,7 +14,7 @@ prerecorded: False
 language: en
 ---
 
-How do you deliver smooth, detailed mapping to millions of passengers aboard French TGV trains while working within tight storage and server resource constraints? This talk traces the journey of renewing the mapping system for the WiFi portal on board the TGV fleet (700 train sets).
+How do you deliver smooth, detailed mapping to millions of passengers aboard French TGV trains while working within tight storage and server resource constraints? This talk traces the journey of renewing the mapping system for the WiFi portal on board the TGV fleet (300 train sets).
 
 We will explain our choice of PMTiles technology to move to vector tiles without relying on a heavy cartographic server. We will share our research into data size optimization — from studying the impact of building footprints to managing zoom levels — and walk through the trade-offs required to ship a complete European base map on board. Finally, we will cover the specific work done on railway data (routes, diversion paths) and the custom design created to give passengers an immersive experience at 300 km/h.
 
@@ -30,7 +30,7 @@ We will explain our choice of PMTiles technology to move to vector tiles without
 
    Why PMTiles (Protomaps)?
    - Direct file reading with no complex cartographic backend.
-   - Easy deployment and updates across 700 independent train sets.
+   - Easy deployment and updates across 300 independent train sets.
 
 3. Size Study: Balancing Richness and Lightness
 
