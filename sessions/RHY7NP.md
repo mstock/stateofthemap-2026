@@ -6,8 +6,8 @@ speaker_names: ["SotM Working Group"]
 affiliations: None
 room: "Guadeloupe"
 length: "20"
-time: "Sunday, 17:05"
-time_iso: "2026-08-30T15:05:00Z"
+time: "Sunday, 16:45"
+time_iso: "2026-08-30T14:45:00Z"
 resources: []
 recording: True
 prerecorded: False

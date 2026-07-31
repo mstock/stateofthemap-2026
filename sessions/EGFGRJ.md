@@ -4,10 +4,10 @@ title: "GeoDesk: The OpenStreetMap toolkit that's fast, easy and fun"
 code: "EGFGRJ"
 speaker_names: ["Martin"]
 affiliations: None
-room: "Martinique"
+room: "Guadeloupe"
 length: "20"
-time: "Sunday, 15:40"
-time_iso: "2026-08-30T13:40:00Z"
+time: "Friday, 11:15"
+time_iso: "2026-08-28T09:15:00Z"
 resources: []
 recording: True
 prerecorded: False

@@ -2,7 +2,7 @@
 layout: session
 title: "50 States (and at Least as Many Mappers): Community Building in the US Over the Last Decade"
 code: "RYFJC7"
-speaker_names: ["Maggie Cawley", "Alyssa Castronuovo"]
+speaker_names: ["Alyssa Castronuovo", "Maggie Cawley"]
 affiliations: None
 room: "Guadeloupe"
 length: "20"
