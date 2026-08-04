@@ -6,8 +6,8 @@ speaker_names: ["Charlotte Liebel"]
 affiliations: None
 room: "Martinique"
 length: "20"
-time: "Saturday, 17:55"
-time_iso: "2026-08-29T15:55:00Z"
+time: "Saturday, 15:05"
+time_iso: "2026-08-29T13:05:00Z"
 resources: []
 recording: True
 prerecorded: False
