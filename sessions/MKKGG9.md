@@ -2,7 +2,7 @@
 layout: session
 title: "MapLibre - from data to rendering, in one status update"
 code: "MKKGG9"
-speaker_names: ["Frank Elsinga", "Yuri Astrakhan"]
+speaker_names: ["Yuri Astrakhan", "Frank Elsinga"]
 affiliations: None
 room: "Guadeloupe"
 length: "20"

@@ -2,7 +2,7 @@
 layout: session
 title: "OSMSG : OpenStreetMap User Group Hashtag Stats"
 code: "HJLK8U"
-speaker_names: ["Niruta Neupane", "Kshitij Raj Sharma", "Gaurav Baral"]
+speaker_names: ["Kshitij Raj Sharma", "Gaurav Baral", "Niruta Neupane"]
 affiliations: None
 room: "Corse"
 length: "5"

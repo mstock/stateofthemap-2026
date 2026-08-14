@@ -2,7 +2,7 @@
 layout: session
 title: "State of OpenHistoricalMap: mapping the world's history, openly"
 code: "GJWH7J"
-speaker_names: ["Minh Nguyễn", "Ruben Lopez Mendoza"]
+speaker_names: ["Ruben Lopez Mendoza", "Minh Nguyễn"]
 affiliations: None
 room: "La Réunion"
 length: "20"

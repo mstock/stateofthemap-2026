@@ -2,7 +2,7 @@
 layout: session
 title: "OSMF Board AMA"
 code: "LPJ9S7"
-speaker_names: ["Héctor Ochoa Ortiz", "Laura Mugeha"]
+speaker_names: ["Laura Mugeha", "Héctor Ochoa Ortiz"]
 affiliations: None
 room: "Guadeloupe"
 length: "60"

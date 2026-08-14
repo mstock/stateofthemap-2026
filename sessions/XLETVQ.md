@@ -2,7 +2,7 @@
 layout: session
 title: "From Bits to Pixels: Introduction to Map Making with OSM Data and MapLibre"
 code: "XLETVQ"
-speaker_names: ["Yuri Astrakhan", "Bart Louwers"]
+speaker_names: ["Bart Louwers", "Yuri Astrakhan"]
 affiliations: None
 room: "Tahiti"
 length: "60"

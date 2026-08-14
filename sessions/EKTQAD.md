@@ -2,7 +2,7 @@
 layout: session
 title: "Introduction to OSM Analytics with ohsome"
 code: "EKTQAD"
-speaker_names: ["Michael Auer", "Rafael Troilo"]
+speaker_names: ["Rafael Troilo", "Michael Auer"]
 affiliations: None
 room: "Tahiti"
 length: "60"

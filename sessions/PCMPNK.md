@@ -2,7 +2,7 @@
 layout: session
 title: "State of Panoramax"
 code: "PCMPNK"
-speaker_names: ["Adrien Pavie", "Christian Quest"]
+speaker_names: ["Christian Quest", "Adrien Pavie"]
 affiliations: None
 room: "Guadeloupe"
 length: "40"
