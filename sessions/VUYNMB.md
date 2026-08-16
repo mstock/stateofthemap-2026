@@ -4,7 +4,7 @@ title: "When Maps Mislead: Lessons from Outdoor Navigation with OpenStreetMap"
 code: "VUYNMB"
 speaker_names: ["Jakub Zmrzlik"]
 affiliations: None
-room: "La Réunion"
+room: "Corse"
 length: "20"
 time: "Saturday, 15:40"
 time_iso: "2026-08-29T13:40:00Z"

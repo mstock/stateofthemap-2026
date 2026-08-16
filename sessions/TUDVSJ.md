@@ -8,7 +8,7 @@ room: "Tahiti"
 length: "60"
 time: "Saturday, 16:45"
 time_iso: "2026-08-29T14:45:00Z"
-resources: []
+resources: [{ description: "Presentation", url: "https://filesender.renater.fr/?s=download&amp;token=90374f92-6451-43bd-8d7c-b00714410e09" }]
 recording: False
 prerecorded: False
 language: en
@@ -19,5 +19,5 @@ Since Paris hosted Wikimania—Wikipedia’s SOTM—in July, this workshop will 
 
 <hr>
 
-This workshop aims to help fill in the gaps in the OpenStreetMap ecosystem’s Wikipedia pages across as many of the encyclopedia’s languages as possible (French, English). Participants will work in pairs—one beginner and one experienced user—or in small thematic groups to help complete the encyclopedia’s entries.
+This workshop aims to help fill in the gaps in the OpenStreetMap ecosystem’s Wikipedia pages across as many of the encyclopedia’s languages as possible (French, English). Participants will work in pairs—one beginner and one experienced user—or in small thematic groups to help complete the encyclopedia’s entries. In French and/or English.
 

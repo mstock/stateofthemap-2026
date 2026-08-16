@@ -4,7 +4,7 @@ title: "&#34;Tous EGO&#34; University mapping project"
 code: "GFUTGL"
 speaker_names: ["Gwenaëlle Chalm"]
 affiliations: None
-room: "Corse"
+room: "La Réunion"
 length: "20"
 time: "Saturday, 15:40"
 time_iso: "2026-08-29T13:40:00Z"
