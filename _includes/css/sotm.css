@@ -1181,5 +1181,13 @@ h2.abstract-subtitle {
   border: none !important;
 }
 
+/* timezone switcher */
+
+select#city-select {
+  background-color: unset;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+}
+
 /* temporary overrides
 --------------------------------------*/
