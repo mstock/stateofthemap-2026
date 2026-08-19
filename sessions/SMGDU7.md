@@ -20,11 +20,13 @@ This panel asks who, and through what processes, should be in charge of those ch
 
 <hr>
 
-Animated by a moderator and three to four panelists from complementary horizons :
-- an OSM contributor and community member; 
-- a public-sector cartographer; 
-- a researcher in critical, sensitive, radical or counter cartography
-- a civic-tech or popular-education actor 
+Animated by Matthieu Chatry, coordinator of [La République des Cartes](https://www.republiquedescartes.fr/en) and three panelists from complementary horizons :
+
+- Christian Quest, OSM contributor and community member and currently Product owner of [Panoramax](https://panoramax.fr/) 
+
+- Ksenia Ermoshina, researcher at the CNRS, specifically at the [Centre Internet &amp; Société](https://cis.cnrs.fr/en/). She works on numerous projects concerning digital practices and related democratic issues. [More about Ksenia Ermoshina](https://cis.cnrs.fr/ksenia-ermoshina/)
+
+- Françoise Bahoken is a geography researcher at Gustave Eiffel University. Her work focuses particularly on the theoretical and methodological aspects of mapping the flows and movements observed in geographic space. [More about Françoise Bahoken](https://cv.hal.science/francoise-bahoken)
 
 The discussion will explore:
 - Map-making as a civic act: when is mapping a form of citizenship, and what would it take for map-reading to become one too?

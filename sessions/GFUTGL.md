@@ -1,6 +1,6 @@
 ---
 layout: session
-title: "&#34;Tous EGO&#34; University mapping project"
+title: "&#34;Tous EGO&#34; University mapping project for accessibility"
 code: "GFUTGL"
 speaker_names: ["Gwenaëlle Chalm"]
 affiliations: None

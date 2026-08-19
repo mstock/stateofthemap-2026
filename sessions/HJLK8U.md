@@ -4,10 +4,10 @@ title: "OSMSG : OpenStreetMap User Group Hashtag Stats"
 code: "HJLK8U"
 speaker_names: ["Kshitij Raj Sharma", "Gaurav Baral", "Niruta Neupane"]
 affiliations: None
-room: "Corse"
-length: "5"
-time: "Saturday, 17:20"
-time_iso: "2026-08-29T15:20:00Z"
+room: "La Réunion"
+length: "20"
+time: "Sunday, 15:40"
+time_iso: "2026-08-30T13:40:00Z"
 resources: []
 recording: True
 prerecorded: False

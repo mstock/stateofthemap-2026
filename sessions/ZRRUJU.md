@@ -4,10 +4,10 @@ title: "Making maps with Ultra"
 code: "ZRRUJU"
 speaker_names: ["Daniel Schep"]
 affiliations: None
-room: "Corse"
-length: "5"
-time: "Saturday, 17:25"
-time_iso: "2026-08-29T15:25:00Z"
+room: "Martinique"
+length: "20"
+time: "Sunday, 14:30"
+time_iso: "2026-08-30T12:30:00Z"
 resources: [{ description: "Ultra", url: "https://overpass-ultra.us" }]
 recording: True
 prerecorded: False

@@ -1,13 +1,13 @@
 ---
 layout: session
-title: "Lightning Talks IV"
+title: "Lightning Talks III"
 code: "DWSETV"
 speaker_names: ["SotM Working Group"]
 affiliations: None
-room: "Martinique"
+room: "Corse"
 length: "20"
-time: "Sunday, 14:30"
-time_iso: "2026-08-30T12:30:00Z"
+time: "Saturday, 17:20"
+time_iso: "2026-08-29T15:20:00Z"
 resources: []
 recording: True
 prerecorded: False

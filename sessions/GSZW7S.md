@@ -4,10 +4,10 @@ title: "UseOSM: Promoting OpenStreetMap Data Usage and Impact Through an Open an
 code: "GSZW7S"
 speaker_names: ["Victor Ademoyero", "Emmanuel Jolaiya"]
 affiliations: None
-room: "Corse"
-length: "5"
-time: "Saturday, 17:30"
-time_iso: "2026-08-29T15:30:00Z"
+room: "Martinique"
+length: "20"
+time: "Sunday, 15:40"
+time_iso: "2026-08-30T13:40:00Z"
 resources: []
 recording: True
 prerecorded: False
