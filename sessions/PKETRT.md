@@ -18,7 +18,7 @@ OpenStreetMap is one of the richest databases in the world. state of the map
 
 whenever it comes to creating a vector base map, we all run into the same wall: the daunting complexity of MapLibre/Mapbox GL style files. The result? We tend to fall back on &#34;off-the-shelf&#34; styles or minor variations, smoothing over the semantic richness of the underlying data.
 
-As a GIS engineer at Tesmo Maps / SNCF Connect, I had to rethink my methods to stop being held back by my tools. In this talk, I share my hands-on experience building an industrial-grade workflow to regain full control over map rendering:
+As a GIS engineer at SNCF Connect &amp; Tech, I had to rethink my methods to stop being held back by my tools. In this talk, I share my hands-on experience building an industrial-grade workflow to regain full control over map rendering:
 
 - **Style-as-Code:** Why and how I moved away from visual editors (such as Maputnik) to work directly with JSON in a text editor.
 - **The &#34;Live Edit&#34; workflow:** A walkthrough of my toolstack — simple, reproducible, and built entirely on open-source components.

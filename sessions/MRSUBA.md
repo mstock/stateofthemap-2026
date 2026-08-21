@@ -14,7 +14,7 @@ prerecorded: False
 language: en
 ---
 
-This talk provides an overview of tagging practices for mapping LGBTQ+ venues and spaces in OSM, covering history of mapping. We'll talk about what sort of things can, and can't be tagged, what should, and should not, be mapped.
+This talk provides an overview of tagging practices for mapping LGBTQ+ venues and spaces in OSM, covering history of mapping. We'll talk about what sort of things can, and can't be tagged, what should, and should not, be mapped. Additionally the [Lgbtq:=* Revision](https://wiki.openstreetmap.org/wiki/Proposal:Lgbtq%3D*_Revision) tagging proposal will be discussed.
 
 The aim is to offer a structured summary of current practices while outlining key limitations, supporting more informed and responsible contributions to OpenStreetMap.
 
