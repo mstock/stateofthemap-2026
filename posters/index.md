@@ -128,8 +128,8 @@ The poster depicts the existence of distinctive data gaps between African nation
 <h2 id="17">Laura Mugeha</h2>
 
 <p style="text-align: center">
-  [<img width="45%" style="display:inline-block" src="../img/posters/17-0.jpg">](https://files.osmfoundation.org/public.php/dav/files/A8jz5WKmbAdArfo/?accept=zip)
-  [<img width="45%" style="display:inline-block" src="../img/posters/17-1.jpg">](https://files.osmfoundation.org/public.php/dav/files/A8jz5WKmbAdArfo/?accept=zip)
+  <a href="https://files.osmfoundation.org/public.php/dav/files/A8jz5WKmbAdArfo/?accept=zip"><img width="45%" style="display:inline-block" src="../img/posters/17-0.jpg"></a>
+  <a href="https://files.osmfoundation.org/public.php/dav/files/A8jz5WKmbAdArfo/?accept=zip"><img width="45%" style="display:inline-block" src="../img/posters/17-1.jpg"></a>
 </p>
 
 The OpenStreetMap Foundation and the OpenStreetMap project run on eight volunteer working groups that most mappers never encounter. They look after the servers, the license, the data, the members, the local chapters, and this conference. These two posters make that work visible. One shows the Foundation as a structure: the map you use, and the groups holding it up. The other follows a single map edit and everyone who touches it before and after it reaches a tile. These Working Groups are open to everyone, and they need people.
@@ -163,7 +163,7 @@ HealthOSM is a QGIS plugin designed and developed to automate the end-to-end ext
 <h2 id="22">Lorenzo Stucchi et al.</h2>
 <h3>Lorenzo Stucchi, Anisa Kuci, Daniele Santini</h3>
 
-[<img src="../img/posters/22.jpg">](https://files.osmfoundation.org/public.php/dav/files/9XxjoNk4dQW6An2/?accept=zip)
+[<img src="../img/posters/22.jpg">](https://files.osmfoundation.org/public.php/dav/files/dmGmi2WTTFXYRXB/?accept=zip)
 
 Wikimedia Italia has developed two new OpenStreetMap-based tile raster styles, created in response to community requests. The first, a hiking style available at European level, combines DTM-derived elevation data with highlighted trail relations and, for Italy, CAI trail numbers, alongside key features like mountain huts, bivouacs, and drinking fountains. The second, a globally available style, prioritises Italian-language place names, improving map readability for Italian users.
 
