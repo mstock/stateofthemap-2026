@@ -36,11 +36,16 @@ window.SOTM_I18N.ar = {
     pending: "الحالة…",
     pano: "كاميرا 360°"
   },
+  ticker: {
+    location: "Paris · Cité Descartes",
+    dates: "28–30 أغسطس 2026"
+  },
   channels: {
     ch1:  { title: "بث 1", room: "غوادلوب" },
     ch2:  { title: "بث 2", room: "ريونيون" },
     ch3:  { title: "بث 3", room: "مارتينيك" },
-    ch4:  { title: "بث 4", room: "استوديو تلفزيوني" },
+    ch4:  { title: "بث 4", room: "كورسيكا" },
+    ch5:  { title: "بث 5", room: "استوديو تلفزيوني" },
     pano: { title: "كاميرا بانورامية", room: "عرض 360°" }
   }
 };

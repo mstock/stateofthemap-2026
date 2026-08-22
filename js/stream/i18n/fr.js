@@ -37,11 +37,16 @@ window.SOTM_I18N.fr = {
     pending: "Statut…",
     pano: "Caméra 360°"
   },
+  ticker: {
+    location: "Paris · Cité Descartes",
+    dates: "28–30 août 2026"
+  },
   channels: {
     ch1:  { title: "Flux 1", room: "Guadeloupe" },
     ch2:  { title: "Flux 2", room: "La Réunion" },
     ch3:  { title: "Flux 3", room: "Martinique" },
-    ch4:  { title: "Flux 4", room: "Plateau TV" },
+    ch4:  { title: "Flux 4", room: "Corse" },
+    ch5:  { title: "Flux 5", room: "Plateau TV" },
     pano: { title: "Caméra panoramique", room: "Vue 360°" }
   }
 };

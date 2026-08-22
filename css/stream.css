@@ -389,12 +389,12 @@
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap:.9rem;
 }
-/* Jusqu'à 6 vignettes à ce jour (4 directs + 360° + rediffusions) : sur
+/* Jusqu'à 7 vignettes à ce jour (5 directs + 360° + rediffusions) : sur
    assez large pour ça, on les aligne sur une seule rangée bien régulière
    plutôt que de laisser l'auto-fill choisir un nombre de colonnes moins
    prévisible. En dessous, la grille redevient fluide (auto-fill ci-dessus). */
 @media (min-width: 1150px){
-  .content .legend-list{ grid-template-columns: repeat(6, 1fr); }
+  .content .legend-list{ grid-template-columns: repeat(7, 1fr); }
 }
 
 /* min-width:0 est indispensable ici : par défaut, un élément de grille a

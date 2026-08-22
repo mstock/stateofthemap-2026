@@ -33,11 +33,16 @@ window.SOTM_I18N.zh = {
     pending: "状态…",
     pano: "360° 摄像头"
   },
+  ticker: {
+    location: "Paris · Cité Descartes",
+    dates: "2026年8月28日–30日"
+  },
   channels: {
     ch1:  { title: "直播 1", room: "瓜德罗普" },
     ch2:  { title: "直播 2", room: "留尼汪" },
     ch3:  { title: "直播 3", room: "马提尼克" },
-    ch4:  { title: "直播 4", room: "电视演播室" },
+    ch4:  { title: "直播 4", room: "科西嘉" },
+    ch5:  { title: "直播 5", room: "电视演播室" },
     pano: { title: "全景摄像头", room: "360° 视角" }
   }
 };

@@ -33,11 +33,16 @@ window.SOTM_I18N.hi = {
     pending: "स्थिति…",
     pano: "360° कैमरा"
   },
+  ticker: {
+    location: "Paris · Cité Descartes",
+    dates: "28–30 अगस्त 2026"
+  },
   channels: {
     ch1:  { title: "स्ट्रीम 1", room: "ग्वाडेलोप" },
     ch2:  { title: "स्ट्रीम 2", room: "रीयूनियन" },
-    ch3:  { title: "स्ट्रीम 3", room: "मार्टिनिक" },
-    ch4:  { title: "स्ट्रीम 4", room: "टीवी स्टूडियो" },
+    ch3:  { title: "स्ट्रीम 3", room: "मार्टीनिक" },
+    ch4:  { title: "स्ट्रीम 4", room: "कोर्सिका" },
+    ch5:  { title: "स्ट्रीम 5", room: "टीवी स्टूडियो" },
     pano: { title: "पैनोरमिक कैमरा", room: "360° दृश्य" }
   }
 };

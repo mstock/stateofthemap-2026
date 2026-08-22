@@ -33,11 +33,16 @@ window.SOTM_I18N.pt = {
     pending: "Status…",
     pano: "Câmera 360°"
   },
+  ticker: {
+    location: "Paris · Cité Descartes",
+    dates: "28–30 de agosto de 2026"
+  },
   channels: {
     ch1:  { title: "Transmissão 1", room: "Guadalupe" },
     ch2:  { title: "Transmissão 2", room: "Reunião" },
     ch3:  { title: "Transmissão 3", room: "Martinica" },
-    ch4:  { title: "Transmissão 4", room: "Estúdio de TV" },
+    ch4:  { title: "Transmissão 4", room: "Córsega" },
+    ch5:  { title: "Transmissão 5", room: "Estúdio de TV" },
     pano: { title: "Câmera panorâmica", room: "Vista de 360°" }
   }
 };
