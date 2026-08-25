@@ -5,7 +5,7 @@ body {
     font-size: 17px;
     color: {{ site.color.text }};
     background-color: {{ site.color.background-light }};
-    background: linear-gradient(to right, #1e1ec3 0%, #002b5e 25%);
+    background: #002b5e linear-gradient(to right, #1e1ec3 0%, #002b5e 25%) repeat-y;
 }
 
 html {
@@ -1191,3 +1191,13 @@ select#city-select {
 
 /* temporary overrides
 --------------------------------------*/
+@media(min-width:767px) {
+  .schedule {
+    margin-left: -40px;
+  }
+}
+@media(max-width:766px) {
+  .schedule {
+    margin-left: 0;
+  }
+}
