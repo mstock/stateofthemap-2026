@@ -33,11 +33,16 @@ window.SOTM_I18N.ru = {
     pending: "Статус…",
     pano: "Камера 360°"
   },
+  ticker: {
+    location: "Paris · Cité Descartes",
+    dates: "28–30 августа 2026"
+  },
   channels: {
     ch1:  { title: "Трансляция 1", room: "Гваделупа" },
     ch2:  { title: "Трансляция 2", room: "Реюньон" },
     ch3:  { title: "Трансляция 3", room: "Мартиника" },
-    ch4:  { title: "Трансляция 4", room: "Телестудия" },
+    ch4:  { title: "Трансляция 4", room: "Корсика" },
+    ch5:  { title: "Трансляция 5", room: "Телестудия" },
     pano: { title: "Панорамная камера", room: "Вид 360°" }
   }
 };

@@ -33,11 +33,16 @@ window.SOTM_I18N.it = {
     pending: "Stato…",
     pano: "Telecamera 360°"
   },
+  ticker: {
+    location: "Paris · Cité Descartes",
+    dates: "28–30 agosto 2026"
+  },
   channels: {
     ch1:  { title: "Diretta 1", room: "Guadalupa" },
     ch2:  { title: "Diretta 2", room: "La Riunione" },
     ch3:  { title: "Diretta 3", room: "Martinica" },
-    ch4:  { title: "Diretta 4", room: "Studio TV" },
+    ch4:  { title: "Diretta 4", room: "Corsica" },
+    ch5:  { title: "Diretta 5", room: "Studio TV" },
     pano: { title: "Telecamera panoramica", room: "Vista a 360°" }
   }
 };

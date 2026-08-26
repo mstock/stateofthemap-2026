@@ -33,11 +33,16 @@ window.SOTM_I18N.ja = {
     pending: "ステータス…",
     pano: "360°カメラ"
   },
+  ticker: {
+    location: "Paris · Cité Descartes",
+    dates: "2026年8月28日〜30日"
+  },
   channels: {
     ch1:  { title: "配信 1", room: "グアドループ" },
     ch2:  { title: "配信 2", room: "レユニオン" },
     ch3:  { title: "配信 3", room: "マルティニーク" },
-    ch4:  { title: "配信 4", room: "テレビスタジオ" },
+    ch4:  { title: "配信 4", room: "コルシカ" },
+    ch5:  { title: "配信 5", room: "テレビスタジオ" },
     pano: { title: "パノラマカメラ", room: "360°ビュー" }
   }
 };

@@ -29,6 +29,7 @@
       { id: "ch2", num: "02",   kind: "peertube", uuid: "rHGTro2UhSN9XGzekQoVxP" },
       { id: "ch3", num: "03",   kind: "peertube", uuid: "5oNj2pdYsuJgfcVkrpwRat" },
       { id: "ch4", num: "04",   kind: "peertube", uuid: "tgnVaCkHp8So6zz1GtnhZU" },
+      { id: "ch5", num: "05",   kind: "peertube", uuid: "hiX96BEqZm8PJ7HeSUXdFw" },
       {
         // Lecteur 360° dédié (three.js + hls.js, gyroscope, pinch-to-zoom,
         // plein écran natif), hébergé et maintenu séparément sur

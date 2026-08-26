@@ -33,11 +33,16 @@ window.SOTM_I18N.de = {
     pending: "Status…",
     pano: "360°-Kamera"
   },
+  ticker: {
+    location: "Paris · Cité Descartes",
+    dates: "28.–30. August 2026"
+  },
   channels: {
     ch1:  { title: "Stream 1", room: "Guadeloupe" },
     ch2:  { title: "Stream 2", room: "La Réunion" },
     ch3:  { title: "Stream 3", room: "Martinique" },
-    ch4:  { title: "Stream 4", room: "TV-Studio" },
+    ch4:  { title: "Stream 4", room: "Korsika" },
+    ch5:  { title: "Stream 5", room: "TV-Studio" },
     pano: { title: "Panoramakamera", room: "360°-Ansicht" }
   }
 };
