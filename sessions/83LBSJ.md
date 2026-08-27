@@ -8,7 +8,7 @@ room: "La Réunion"
 length: "20"
 time: "Friday, 15:05"
 time_iso: "2026-08-28T13:05:00Z"
-resources: []
+resources: [{ description: "link to the slides", url: "https://riatecom.github.io/R_OSM_SOTM_2026/" }]
 recording: True
 prerecorded: False
 language: en
