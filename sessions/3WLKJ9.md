@@ -8,7 +8,7 @@ room: "Guadeloupe"
 length: "20"
 time: "Saturday, 11:50"
 time_iso: "2026-08-29T09:50:00Z"
-resources: [{ description: "Transitous", url: "https://transitous.org" }]
+resources: [{ description: "Slides", url: "https://pretalx.com/media/sotm2026/submissions/3WLKJ9/resources/sotm-2026-transit_UMiM5f3.pdf" },{ description: "Transitous", url: "https://transitous.org" }]
 recording: True
 prerecorded: False
 language: en

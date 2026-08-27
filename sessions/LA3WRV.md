@@ -8,7 +8,7 @@ room: "Martinique"
 length: "5"
 time: "Saturday, 15:50"
 time_iso: "2026-08-29T13:50:00Z"
-resources: []
+resources: [{ description: "Slides", url: "https://pretalx.com/media/sotm2026-osm-science/submissions/LA3WRV/resources/talk_TLx2Clv.pdf" }]
 recording: True
 prerecorded: False
 language: en

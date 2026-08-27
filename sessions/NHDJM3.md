@@ -8,7 +8,7 @@ room: "La Réunion"
 length: "20"
 time: "Saturday, 17:55"
 time_iso: "2026-08-29T15:55:00Z"
-resources: []
+resources: [{ description: "Slides", url: "https://pretalx.com/media/sotm2026/submissions/NHDJM3/resources/photon-talk-sotm2_Fn4DLA1.pdf" },{ description: "Photon database and JSON downloads", url: "https://download1.graphhopper.com/public" },{ description: "Photon Github", url: "https://github.com/komoot/photon" },{ description: "Photon demo server", url: "https://photon.komoot.io/" }]
 recording: True
 prerecorded: False
 language: en
