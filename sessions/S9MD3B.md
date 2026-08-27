@@ -6,8 +6,8 @@ speaker_names: ["Benjamin Herfort"]
 affiliations: None
 room: "La Réunion"
 length: "20"
-time: "Sunday, 12:35"
-time_iso: "2026-08-30T10:35:00Z"
+time: "Sunday, 12:25"
+time_iso: "2026-08-30T10:25:00Z"
 resources: []
 recording: True
 prerecorded: False
