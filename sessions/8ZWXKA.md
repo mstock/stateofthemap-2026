@@ -15,4 +15,5 @@ language: en
 ---
 
 * Using an import as a QA tool for aligning buildings (Andrew Hain)
+* Gathering price of the world: Open Prices, between OSM and Open Food Facts  (Alex Bourreau)
 
