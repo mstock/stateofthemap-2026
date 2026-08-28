@@ -6,8 +6,8 @@ speaker_names: []
 affiliations: None
 room: "Porquerolles"
 length: "30"
-time: "Friday, 11:15"
-time_iso: "2026-08-28T09:15:00Z"
+time: "Friday, 11:50"
+time_iso: "2026-08-28T09:50:00Z"
 resources: []
 recording: False
 prerecorded: False
