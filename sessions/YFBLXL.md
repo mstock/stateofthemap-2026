@@ -8,7 +8,7 @@ room: "Corse"
 length: "20"
 time: "Saturday, 10:05"
 time_iso: "2026-08-29T08:05:00Z"
-resources: []
+resources: [{ description: "Slides PDF", url: "https://pretalx.com/media/sotm2026/submissions/YFBLXL/resources/osm-for-cities-so_nT9z65p.pdf" },{ description: "Online slides", url: "https://osmforcities.github.io/talks/sotm-paris-2026" }]
 recording: True
 prerecorded: False
 language: en
