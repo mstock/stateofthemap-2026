@@ -1,13 +1,13 @@
 ---
 layout: session
-title: "Open discussion about what the OSM&amp;ESRI communities need"
-code: "VFVDYV"
+title: "Notes et applications mobiles"
+code: "LGH3DU"
 speaker_names: []
 affiliations: None
 room: "Porquerolles"
 length: "30"
-time: "Saturday, 12:25"
-time_iso: "2026-08-29T10:25:00Z"
+time: "Sunday, 09:30"
+time_iso: "2026-08-30T07:30:00Z"
 resources: []
 recording: False
 prerecorded: False

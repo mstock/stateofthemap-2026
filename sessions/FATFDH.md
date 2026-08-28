@@ -1,18 +1,18 @@
 ---
 layout: session
-title: "Open discussion about what the OSM&amp;ESRI communities need"
-code: "VFVDYV"
+title: "Putting Accessibility on the Map"
+code: "FATFDH"
 speaker_names: []
 affiliations: None
 room: "Porquerolles"
 length: "30"
-time: "Saturday, 12:25"
-time_iso: "2026-08-29T10:25:00Z"
+time: "Saturday, 15:05"
+time_iso: "2026-08-29T13:05:00Z"
 resources: []
 recording: False
 prerecorded: False
 language: en
 ---
 
-
+a11y-Sure &amp; wheelmap as use cases
 

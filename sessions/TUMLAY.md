@@ -1,0 +1,18 @@
+---
+layout: session
+title: "Engineering Working Group LIVE!"
+code: "TUMLAY"
+speaker_names: []
+affiliations: None
+room: "Ouessant"
+length: "30"
+time: "Saturday, 11:15"
+time_iso: "2026-08-29T09:15:00Z"
+resources: []
+recording: False
+prerecorded: False
+language: en
+---
+
+
+
