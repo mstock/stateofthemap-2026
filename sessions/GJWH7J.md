@@ -8,7 +8,7 @@ room: "La Réunion"
 length: "20"
 time: "Friday, 17:55"
 time_iso: "2026-08-28T15:55:00Z"
-resources: []
+resources: [{ description: "Slides", url: "https://pretalx.com/media/sotm2026/submissions/GJWH7J/resources/state-of-openhist_U6POf0f.pdf" }]
 recording: True
 prerecorded: False
 language: en
