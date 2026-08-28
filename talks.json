@@ -753,7 +753,7 @@
       "code": "8ZWXKA",
       "id": 1591026,
       "title": "Lightning Talks I",
-      "abstract": "Lightning talks are short presentations (maximum 5 minutes) about a topic related to OpenStreetMap.",
+      "abstract": "* Using an import as a QA tool for aligning buildings (Andrew Hain)",
       "speakers": [
         "SNKPLF"
       ],
@@ -1335,7 +1335,7 @@
       "code": "LDQTKQ",
       "id": 1591066,
       "title": "Lightning Talks II",
-      "abstract": "* weeklyOSM - What's new?",
+      "abstract": "* More open, more connected - OSM across ArcGIS & OSM editors\r\n* weeklyOSM - What's new?\r\n* OSM.kids\r\n* Mapping Historical Photos without yesterdays\r\n* TerrainK: create art using OSM data",
       "speakers": [
         "SNKPLF"
       ],

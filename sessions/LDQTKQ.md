@@ -14,5 +14,9 @@ prerecorded: False
 language: en
 ---
 
+* More open, more connected - OSM across ArcGIS &amp; OSM editors
 * weeklyOSM - What's new?
+* OSM.kids
+* Mapping Historical Photos without yesterdays
+* TerrainK: create art using OSM data
 
