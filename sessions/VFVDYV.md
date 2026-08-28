@@ -1,6 +1,6 @@
 ---
 layout: session
-title: "Open discussion about what the OSM&amp;ESRI commnities need"
+title: "Open discussion about what the OSM&amp;ESRI communities need"
 code: "VFVDYV"
 speaker_names: []
 affiliations: None
