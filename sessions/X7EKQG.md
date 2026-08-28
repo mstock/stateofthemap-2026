@@ -8,7 +8,7 @@ room: "La Réunion"
 length: "20"
 time: "Saturday, 09:30"
 time_iso: "2026-08-29T07:30:00Z"
-resources: []
+resources: [{ description: "Slides (PDF)", url: "https://pretalx.com/media/sotm2026/submissions/X7EKQG/resources/SOTM2026-LeBonTag_TunjURh.pdf" },{ description: "LeBonTag Documentation", url: "https://documentation.lebontag.fr/" },{ description: "LeBonTag Git", url: "https://gitlab.com/Geonov/lebontag-v2" },{ description: "Geonov Website", url: "https://www.geonov.fr/" },{ description: "LeBonTag Website", url: "https://www.lebontag.fr/" }]
 recording: True
 prerecorded: False
 language: en
