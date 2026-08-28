@@ -2097,7 +2097,7 @@
       "code": "WYKG8T",
       "id": 1590782,
       "title": "Lightning Talks V",
-      "abstract": "Lightning talks are short presentations (maximum 5 minutes) about a topic related to OpenStreetMap.",
+      "abstract": "* Investigating Hospitality (SK53)\r\n* Cartography with tilemaker (Richard Fairhurst)",
       "speakers": [
         "SNKPLF"
       ],
