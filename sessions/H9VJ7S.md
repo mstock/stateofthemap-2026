@@ -8,7 +8,7 @@ room: "Martinique"
 length: "20"
 time: "Friday, 17:55"
 time_iso: "2026-08-28T15:55:00Z"
-resources: []
+resources: [{ description: "Presentation slides provided by BKG", url: "https://pretalx.com/media/sotm2026/submissions/H9VJ7S/resources/2026-08-28_SotM_B_S5tcvNV.pdf" }]
 recording: True
 prerecorded: False
 language: en
