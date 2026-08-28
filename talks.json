@@ -184,7 +184,7 @@
       "speakers": [
         "QDST7R"
       ],
-      "track": null,
+      "track": 6921,
       "start": "2026-08-28T11:15:00+02:00",
       "end": "2026-08-28T11:45:00+02:00",
       "room": 5462,
@@ -475,7 +475,7 @@
       "speakers": [
         "MVXL7N"
       ],
-      "track": null,
+      "track": 6921,
       "start": "2026-08-28T15:05:00+02:00",
       "end": "2026-08-28T15:35:00+02:00",
       "room": 5462,
@@ -2764,6 +2764,14 @@
   "event_start": "2026-08-28",
   "event_end": "2026-08-30",
   "tracks": [
+    {
+      "id": 6921,
+      "name": {
+        "en": "Birds of a Feather/BOF Session"
+      },
+      "description": {},
+      "color": "#5a6400"
+    },
     {
       "id": 6910,
       "name": {
