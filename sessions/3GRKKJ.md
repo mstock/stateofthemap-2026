@@ -20,6 +20,8 @@ We'll show all scales of OSM integration, from grass roots activities like hydra
 
 <hr>
 
+[SLIDES HERE](https://pretalx.com/media/sotm2026/submissions/3GRKKJ/resources/sotm26_vfdb_IhVvlgB.pdf)
+
 Most mappers know that the data they add to OSM is occasionally used by emergency services, and this can be very motivating for some. But just how common is OpenStreetMap in the fire and ambulance services? Very! In fact, there aren't many control rooms that _don't_ use OSM, be it just as a background map or even for geocoding, dispatch, and routing. 
 
 We will walk the audience through an incident and highlight how OSM is used at each stage. This example shows the maximum integeration of OSM, which is already state-of-the-art in some departments, but of course not in all ≈250 fire and ambulance control rooms in Germany. 
