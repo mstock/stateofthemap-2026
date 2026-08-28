@@ -8,7 +8,7 @@ room: "Guadeloupe"
 length: "20"
 time: "Friday, 11:50"
 time_iso: "2026-08-28T09:50:00Z"
-resources: []
+resources: [{ description: "Export - a bit yanky (images are sometimes spread over 2 pages)", url: "https://pretalx.com/media/sotm2026/submissions/UHXHDT/resources/Perspectives_on_e_ScpWRNu.pdf" }]
 recording: True
 prerecorded: False
 language: en
