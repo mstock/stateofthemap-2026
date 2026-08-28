@@ -16,4 +16,5 @@ language: en
 
 * Investigating Hospitality (SK53)
 * Cartography with tilemaker (Richard Fairhurst)
+*Nik5 - a C++ port of Nik4 (Michael Reichert)
 
