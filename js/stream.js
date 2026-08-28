@@ -401,7 +401,7 @@
   // les 3 jours de l'évènement : on rafraîchit périodiquement plutôt
   // qu'une seule fois au chargement (sinon le compteur reste figé pour
   // quiconque garde l'onglet ouvert).
-  const META_REFRESH_MS = 30000;
+  const META_REFRESH_MS = 5 * 60 * 1000;
   setInterval(loadAllMeta, META_REFRESH_MS);
 
   /* =========================================================================
